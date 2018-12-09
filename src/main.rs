@@ -1,4 +1,11 @@
 
+fn solve(sudoku_ar : [i8; 81]){
+    for elem  in  sudoku_ar.iter() {
+	    println!("elem {}",elem);
+	}	  	
+}
+
+
 fn main() {
      let sudoku_ar: [i8; 81] = [
       8,5,0,0,0,2,4,0,0,
@@ -11,9 +18,7 @@ fn main() {
       0,1,7,0,0,0,0,0,0,
       0,0,0,0,3,6,0,4,0
      ];
-     for elem  in  sudoku_ar.iter() {
-		 println!("elem {}",elem);
-	 }
-             
+
+     solve( sudoku_ar );        
              
 }
