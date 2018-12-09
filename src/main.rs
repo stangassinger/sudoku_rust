@@ -1,5 +1,12 @@
 
-fn solve(sudoku_ar : [i8; 81]){
+
+type SudokuArType = [i8; 81];
+//fn placeNumber( pos: i8; sudoku_ar: SudokuArType ){
+	
+//}
+
+
+fn solve(sudoku_ar : SudokuArType){
     for elem  in  sudoku_ar.iter() {
 	    println!("elem {}",elem);
 	}	  	
@@ -7,7 +14,7 @@ fn solve(sudoku_ar : [i8; 81]){
 
 
 fn main() {
-     let sudoku_ar: [i8; 81] = [
+     let sudoku_ar: SudokuArType = [
       8,5,0,0,0,2,4,0,0,
       7,2,0,0,0,0,0,0,9,
       0,0,4,0,0,0,0,0,0,
