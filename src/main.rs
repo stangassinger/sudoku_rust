@@ -3,7 +3,7 @@
 type SudokuArType = [i8; 81];
 
 
-fn place_number( pos: i8, sudoku_ar: SudokuArType ) -> bool {
+fn place_number( pos: usize, sudoku_ar: SudokuArType ) -> bool {
 	let mut ret : bool;
     if pos == 81 {
 		return true
@@ -16,6 +16,7 @@ fn place_number( pos: i8, sudoku_ar: SudokuArType ) -> bool {
 		    return false	
 		}
 	}
+	false
 }
 
 
