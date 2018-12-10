@@ -1,15 +1,29 @@
 
 
 type SudokuArType = [i8; 81];
-//fn placeNumber( pos: i8; sudoku_ar: SudokuArType ){
-	
-//}
+
+
+fn place_number( pos: i8, sudoku_ar: SudokuArType ) -> bool {
+	let mut ret : bool;
+    if pos == 81 {
+		return true
+	}
+	if sudoku_ar[pos] > 0 {
+		ret = place_number( pos + 1, sudoku_ar );
+		if ret == true {
+			return true
+		} else {
+		    return false	
+		}
+	}
+}
 
 
 fn solve(sudoku_ar : SudokuArType){
-    for elem  in  sudoku_ar.iter() {
-	    println!("elem {}",elem);
-	}	  	
+	place_number( 0, sudoku_ar );
+//    for elem  in  sudoku_ar.iter() {
+//	    println!("elem {}",elem);
+//	}	  	
 }
 
 
