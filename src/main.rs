@@ -3,7 +3,13 @@
 type SudokuArType = [i8; 81];
 
 
-fn place_number( pos: usize, sudoku_ar: SudokuArType ) -> bool {
+fn check_validity() -> bool{
+	true
+}
+
+
+
+fn place_number( pos: usize, mut sudoku_ar: SudokuArType ) -> bool {
 	let mut ret : bool;
     if pos == 81 {
 		return true
@@ -16,8 +22,19 @@ fn place_number( pos: usize, sudoku_ar: SudokuArType ) -> bool {
 		    return false	
 		}
 	}
-	false
+	for n in 1..9 {
+	    if check_validity() == true {
+		    sudoku_ar[pos] = n;
+		    ret = place_number( pos + 1, sudoku_ar );
+		    if ret == true{
+			    return true;	
+			}	
+			sudoku_ar[pos] = 0;
+		}    	
+    }
+    false
 }
+
 
 
 fn solve(sudoku_ar : SudokuArType){
