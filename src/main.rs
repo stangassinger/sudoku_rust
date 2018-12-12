@@ -54,32 +54,23 @@ fn place_number( pos: usize, mut sudoku_ar: SudokuArType ) -> bool {
     false
 }
 
-///////////////////////////
-// procedure prettyprint(sudoku_ar: sudoku_ar_t)
-//   is
-//      line_sep   : constant String  := "------+------+------";
-//   begin
-//      for i in sudoku_ar'Range loop
-//         Ada.Text_IO.Put(sudoku_ar(i)'Image);
-//         if (i+1) mod 3 = 0 and not((i+1) mod 9 = 0) then
-//            Ada.Text_IO.Put("|");
-//         end if;
-//         if (i+1) mod 9 = 0 then
-//            Ada.Text_IO.Put_Line("");
-//         end if;
-//         if (i+1) mod 27 = 0 then
-//            Ada.Text_IO.Put_Line(line_sep);
-//         end if;
-//      end loop;
-//   end prettyprint;
-////////////////////////////
-
-
 
 
 fn pretty_print( sudoku_ar : SudokuArType ) {
 	let line_sep = "------+------+------";
 	println!("{}",line_sep);
+	for i in 0..sudoku_ar.len() {		
+	    print!("{} ", sudoku_ar[i] );
+	    if (i + 1) % 3 == 0 && !( (i + 1) % 9 == 0 ) {
+		    print!("| ");	
+		}
+		if (i+1) % 9 == 0 {
+            println!(" ");
+	    } 
+	    if (i+1) % 27 == 0 {
+            println!("{}", line_sep);
+        }
+	}	
 }
 
 
