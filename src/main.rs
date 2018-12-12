@@ -75,12 +75,8 @@ fn pretty_print( sudoku_ar : SudokuArType ) {
 
 
 
-fn solve(sudoku_ar : SudokuArType){
-	place_number( 0, sudoku_ar );
-	pretty_print( sudoku_ar );
-//    for elem  in  sudoku_ar.iter() {
-//	    println!("elem {}",elem);
-//	}	  	
+fn solve(sudoku_ar : SudokuArType) -> bool {
+	place_number( 0, sudoku_ar )	
 }
 
 
@@ -97,6 +93,13 @@ fn main() {
       0,0,0,0,3,6,0,4,0
      ];
 
-     solve( sudoku_ar );        
+    
+     
+     
+     if solve( sudoku_ar ) == false {
+         println!("Unsolvable");        
+     } else {
+         pretty_print( sudoku_ar );
+     }      
              
 }
