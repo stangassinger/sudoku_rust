@@ -3,7 +3,7 @@
 type SudokuArType = [u8; 81];
 
 
-fn check_validity( val : u8, x : usize, y : usize, sudoku_ar : SudokuArType ) -> bool{
+fn check_validity( val : u8, x : usize, y : usize,  sudoku_ar : &mut SudokuArType ) -> bool{
 	for i in 0..8 {
 	    if ( sudoku_ar[y * 9 + i] == val ) || ( sudoku_ar[i * 9 + x] == val ) {
 		    return false	
@@ -42,8 +42,9 @@ fn place_number( pos: usize, sudoku_ar: &mut SudokuArType ) -> bool {
 		}
 	}
 	for n in 1..9 {
-	    if check_validity(n, pos % 9, pos / 9, *sudoku_ar) == true {
+	    if check_validity(n, pos % 9, pos / 9, sudoku_ar) == true {
 		    sudoku_ar[pos] = n;
+		    println!("-- {} ---> {}", pos, sudoku_ar[pos]);
 		    ret = place_number( pos + 1, sudoku_ar );
 		    if ret == true{
 			    return true;	
