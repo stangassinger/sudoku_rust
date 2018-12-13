@@ -20,10 +20,8 @@ fn check_validity( val : u8, x : usize, y : usize, sudoku_ar : SudokuArType ) ->
 			    return false	
 		    }	
 	    }	
-    }
-    
-    true
-	
+    }    
+    true	
 }
 
 
