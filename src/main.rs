@@ -4,8 +4,8 @@ type SudokuArType = [u8; 81];
 
 
 fn check_validity( val : u8, x : usize, y : usize, sudoku_ar : SudokuArType ) -> bool{
-	for i in 0..8{
-	    if sudoku_ar[y * 9 + i] == val || sudoku_ar[i * 9 + x] == val {
+	for i in 0..8 {
+	    if ( sudoku_ar[y * 9 + i] == val ) || ( sudoku_ar[i * 9 + x] == val ) {
 		    return false	
 		}	
 	}
