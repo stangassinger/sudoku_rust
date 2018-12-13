@@ -33,8 +33,10 @@ fn place_number( pos: usize, sudoku_ar: &mut SudokuArType ) -> bool {
     if pos == 81 {
 		return true
 	}
+	
+	
 	if sudoku_ar[pos] > 0 {
-		ret = place_number( pos + 1, sudoku_ar );
+		ret = place_number( pos + 1,  sudoku_ar );
 		if ret == true {
 			return true
 		} else {
@@ -70,18 +72,18 @@ fn pretty_print( sudoku_ar : SudokuArType ) {
 	    if (i+1) % 27 == 0 {
             println!("{}", line_sep);
         }
-	}	
+	}
 }
 
 
 
-fn solve( mut sudoku_ar : SudokuArType) -> bool {
-	place_number( 0, &mut sudoku_ar )	
+fn solve( sudoku_ar : &mut SudokuArType) -> bool {
+	place_number( 0,  sudoku_ar )	
 }
 
 
 fn main() {
-     let sudoku_ar: SudokuArType = [
+     let mut sudoku_ar: SudokuArType = [
       8,5,0,0,0,2,4,0,0,
       7,2,0,0,0,0,0,0,9,
       0,0,4,0,0,0,0,0,0,
@@ -96,7 +98,7 @@ fn main() {
     
      
      
-     if solve( sudoku_ar ) == false {
+     if solve( &mut sudoku_ar ) == false {
          println!("Unsolvable");        
      } else {
          pretty_print( sudoku_ar );
